@@ -7,12 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <meta name="description" content="We continuously monitor the status of our services and if there are any interruptions, a note will be posted here.">
-    <title>Eggsample Status</title>
+    <title>Yixboost Status Page</title>
     <link rel="canonical" href="http://localhost:1313/">
-    <link rel="alternate" type="application/json" href="http://localhost:1313/index.json" title="Eggsample Status" />
-    <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml" title="Eggsample Status" />
-    <link rel="alternate" type="image/svg+xml" href="http://localhost:1313/index.svg" title="Eggsample Status" />
-    <meta name="generator" content="cState v6.0 - https://github.com/cstate/cstate">
+    <link rel="alternate" type="application/json" href="http://localhost:1313/index.json" title="Yixboost Status Page" />
+    <link rel="alternate" type="application/rss+xml" href="http://localhost:1313/index.xml" title="Yixboost Status Page" />
+    <link rel="alternate" type="image/svg+xml" href="http://localhost:1313/index.svg" title="Yixboost Status Page" />
+    <meta name="generator" content="cState v6.0.1 - https://github.com/cstate/cstate">
     <meta name="theme-color" content="#0a0c0f">
     <script>
     var themeBrandColor = '#0a0c0f';
@@ -430,6 +430,7 @@
 
         .date { color: #c3bfb6; }
 
+	.tag { color: #fff; }
         .tag, .archive__head { background-color: #1d1f20; }
         .tag:hover { background: #222; }
         .issue:hover,
@@ -476,7 +477,7 @@
   <div class="contain">
     <a href="http://localhost:1313/" class="header__logo header__logo--small">
       
-        <img src="/logo.png" alt="Eggsample Status">
+        <img src="/yixboost-logo.png" alt="Yixboost Status Page">
           
     </a>
   </div>
@@ -969,29 +970,6 @@
 
 
 
-
-  <div class="announcement-box" style="border-bottom: 0">
-    
-    
-    
-      
-      <div class="padding">
-        <p>
-          <a href="/issues/2024-02-24-maintenance-window/"><strong class="bold">Maintenance Announcement →</strong></a>
-        </p>
-
-        <p><small>
-          
-        </small></p>
-
-        <p>We will shut down our network at midnight UTC on Feb 24. This does not affect the current status.</p>
-
-        <p></p>
-      </div>
-      <hr class="clean announcement-box">
-      
-    
-  </div>
  
 
 
@@ -1016,7 +994,7 @@
 
 	
 	<div class="category category--closed category--titled"
-		id="north-coast">
+		id="main-website-yixboost.dev">
 		
 		<div class="bold padding clicky category__head" onclick="toggleCategoryHead(this)">
 			<span class="hide-without-js">
@@ -1035,11 +1013,11 @@
 					</svg>
 				</span>
 			</span>
-			<b>North Coast</b>
+			<b>Main website (yixboost.dev)</b>
 			
 			<span class="tooltip tooltip--small">
 				&nbsp; <span class="faded">(?)</span>
-				<span class="tooltip__text">The main servers are located here.</span>
+				<span class="tooltip__text">Our mian website (yixboost.dev)</span>
 			</span>
 			
 			<span class="category-status"></span>
@@ -1054,12 +1032,171 @@
 			
 			
 
-			<div class="component" id="system-gateway"
+			<div class="component" id="system-main-website"
 				data-status="ok">
-				<a href="/affected/gateway/" class="no-underline">
-					Gateway
+				<a href="/affected/main-website/" class="no-underline">
+					Main website
 				</a>
 
+				
+				<span class="tooltip tooltip--small">
+					&nbsp; <span class="faded">(?)</span>
+					<span class="tooltip__text">Our project page on yixboost.dev</span>
+				</span>
+				
+
+				
+				<span class="span-icon">
+					<a href="https://yixboost.dev" class="external-link-style">
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+							stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+							<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+							<polyline points="15 3 21 3 21 9"></polyline>
+							<line x1="10" y1="14" x2="21" y2="3"></line>
+						</svg>
+					</a>
+				</span>
+				
+
+				<span class="component-status">
+					
+					Operational
+					
+				</span>
+
+				
+
+				
+			</div>
+			
+		</div>
+
+		
+		<script>
+			(function () {
+				var thisCategory = document.currentScript.parentNode;
+				var componentsOfThisCategory = thisCategory.querySelectorAll('.component');
+				var highestLevelStatus = 'ok';
+
+				function checkStatus(element) {
+					var status = element.getAttribute('data-status');
+					if (status === 'down') {
+						highestLevelStatus = 'down';
+					} else if (status === 'disrupted' && highestLevelStatus !== 'down') {
+						highestLevelStatus = 'disrupted';
+					} else if (status === 'notice' && highestLevelStatus !== 'down' && highestLevelStatus !== 'disrupted') {
+						highestLevelStatus = 'notice';
+					}
+				}
+
+				componentsOfThisCategory.forEach(checkStatus);
+
+				var highestLevelStatusReadable = highestLevelStatus;
+				if (highestLevelStatus === 'ok') highestLevelStatusReadable = 'Operational';
+				else if (highestLevelStatus === 'notice') highestLevelStatusReadable = 'Maintenance';
+				else if (highestLevelStatus === 'disrupted') highestLevelStatusReadable = 'Disrupted';
+				else if (highestLevelStatus === 'down') highestLevelStatusReadable = 'Down';
+
+				if (thisCategory.classList.contains('category--titled')) {
+					thisCategory.querySelector('.category__head').setAttribute('data-status', highestLevelStatus);
+					thisCategory.querySelector('.category-status').innerHTML = highestLevelStatusReadable;
+				}
+			})();
+		</script>
+	</div>
+	
+	<div class="category category--closed category--titled"
+		id="yixboost-games">
+		
+		<div class="bold padding clicky category__head" onclick="toggleCategoryHead(this)">
+			<span class="hide-without-js">
+				<span class="category__closed-marker">
+					<span class="sr-only">Open dropdown</span>
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+						stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+						<polyline points="9 18 15 12 9 6"></polyline>
+					</svg>
+				</span>
+				<span class="category__open-marker">
+					<span class="sr-only">Close dropdown</span>
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+						stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down">
+						<polyline points="6 9 12 15 18 9"></polyline>
+					</svg>
+				</span>
+			</span>
+			<b>Yixboost Games</b>
+			
+			<span class="tooltip tooltip--small">
+				&nbsp; <span class="faded">(?)</span>
+				<span class="tooltip__text">All services needed for Yixboost Games</span>
+			</span>
+			
+			<span class="category-status"></span>
+		</div>
+		
+
+		
+		<div class="components">
+			
+			
+			
+			
+			
+
+			<div class="component" id="system-main-domain-yixboost.eu"
+				data-status="ok">
+				<a href="/affected/main-domain-yixboost.eu/" class="no-underline">
+					Main domain (yixboost.eu)
+				</a>
+
+				
+				<span class="tooltip tooltip--small">
+					&nbsp; <span class="faded">(?)</span>
+					<span class="tooltip__text">Our main domain</span>
+				</span>
+				
+
+				
+				<span class="span-icon">
+					<a href="https://yixboost.eu" class="external-link-style">
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+							stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+							<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+							<polyline points="15 3 21 3 21 9"></polyline>
+							<line x1="10" y1="14" x2="21" y2="3"></line>
+						</svg>
+					</a>
+				</span>
+				
+
+				<span class="component-status">
+					
+					Operational
+					
+				</span>
+
+				
+
+				
+			</div>
+			
+			
+			
+			
+			
+
+			<div class="component" id="system-alternate-domains"
+				data-status="ok">
+				<a href="/affected/alternate-domains/" class="no-underline">
+					Alternate domains
+				</a>
+
+				
+				<span class="tooltip tooltip--small">
+					&nbsp; <span class="faded">(?)</span>
+					<span class="tooltip__text">Yixboost Games proxy service for extra domains like tuxarmy.nl and play.yixboost.dev</span>
+				</span>
 				
 
 				
@@ -1080,12 +1217,244 @@
 			
 			
 
-			<div class="component" id="system-backup-gateway"
+			<div class="component" id="system-api"
 				data-status="ok">
-				<a href="/affected/backup-gateway/" class="no-underline">
-					Backup Gateway
+				<a href="/affected/api/" class="no-underline">
+					API
 				</a>
 
+				
+				<span class="tooltip tooltip--small">
+					&nbsp; <span class="faded">(?)</span>
+					<span class="tooltip__text">The API for Yixboost Games</span>
+				</span>
+				
+
+				
+
+				<span class="component-status">
+					
+					Operational
+					
+				</span>
+
+				
+
+				
+			</div>
+			
+		</div>
+
+		
+		<script>
+			(function () {
+				var thisCategory = document.currentScript.parentNode;
+				var componentsOfThisCategory = thisCategory.querySelectorAll('.component');
+				var highestLevelStatus = 'ok';
+
+				function checkStatus(element) {
+					var status = element.getAttribute('data-status');
+					if (status === 'down') {
+						highestLevelStatus = 'down';
+					} else if (status === 'disrupted' && highestLevelStatus !== 'down') {
+						highestLevelStatus = 'disrupted';
+					} else if (status === 'notice' && highestLevelStatus !== 'down' && highestLevelStatus !== 'disrupted') {
+						highestLevelStatus = 'notice';
+					}
+				}
+
+				componentsOfThisCategory.forEach(checkStatus);
+
+				var highestLevelStatusReadable = highestLevelStatus;
+				if (highestLevelStatus === 'ok') highestLevelStatusReadable = 'Operational';
+				else if (highestLevelStatus === 'notice') highestLevelStatusReadable = 'Maintenance';
+				else if (highestLevelStatus === 'disrupted') highestLevelStatusReadable = 'Disrupted';
+				else if (highestLevelStatus === 'down') highestLevelStatusReadable = 'Down';
+
+				if (thisCategory.classList.contains('category--titled')) {
+					thisCategory.querySelector('.category__head').setAttribute('data-status', highestLevelStatus);
+					thisCategory.querySelector('.category-status').innerHTML = highestLevelStatusReadable;
+				}
+			})();
+		</script>
+	</div>
+	
+	<div class="category category--closed category--titled"
+		id="infrastructure">
+		
+		<div class="bold padding clicky category__head" onclick="toggleCategoryHead(this)">
+			<span class="hide-without-js">
+				<span class="category__closed-marker">
+					<span class="sr-only">Open dropdown</span>
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+						stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
+						<polyline points="9 18 15 12 9 6"></polyline>
+					</svg>
+				</span>
+				<span class="category__open-marker">
+					<span class="sr-only">Close dropdown</span>
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+						stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down">
+						<polyline points="6 9 12 15 18 9"></polyline>
+					</svg>
+				</span>
+			</span>
+			<b>Infrastructure</b>
+			
+			<span class="tooltip tooltip--small">
+				&nbsp; <span class="faded">(?)</span>
+				<span class="tooltip__text">All extra systems</span>
+			</span>
+			
+			<span class="category-status"></span>
+		</div>
+		
+
+		
+		<div class="components">
+			
+			
+			
+			
+			
+
+			<div class="component" id="system-url-management-system"
+				data-status="ok">
+				<a href="/affected/url-management-system/" class="no-underline">
+					URL Management System
+				</a>
+
+				
+				<span class="tooltip tooltip--small">
+					&nbsp; <span class="faded">(?)</span>
+					<span class="tooltip__text">Our url redirect system</span>
+				</span>
+				
+
+				
+				<span class="span-icon">
+					<a href="https://link.yixboost.dev" class="external-link-style">
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+							stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+							<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+							<polyline points="15 3 21 3 21 9"></polyline>
+							<line x1="10" y1="14" x2="21" y2="3"></line>
+						</svg>
+					</a>
+				</span>
+				
+
+				<span class="component-status">
+					
+					Operational
+					
+				</span>
+
+				
+
+				
+			</div>
+			
+			
+			
+			
+			
+
+			<div class="component" id="system-cdn"
+				data-status="ok">
+				<a href="/affected/cdn/" class="no-underline">
+					CDN
+				</a>
+
+				
+				<span class="tooltip tooltip--small">
+					&nbsp; <span class="faded">(?)</span>
+					<span class="tooltip__text">Our own hosting for cdn like css and js libraries</span>
+				</span>
+				
+
+				
+				<span class="span-icon">
+					<a href="https://cdn.yixboost.dev" class="external-link-style">
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+							stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+							<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+							<polyline points="15 3 21 3 21 9"></polyline>
+							<line x1="10" y1="14" x2="21" y2="3"></line>
+						</svg>
+					</a>
+				</span>
+				
+
+				<span class="component-status">
+					
+					Operational
+					
+				</span>
+
+				
+
+				
+			</div>
+			
+			
+			
+			
+			
+
+			<div class="component" id="system-analytics"
+				data-status="ok">
+				<a href="/affected/analytics/" class="no-underline">
+					Analytics
+				</a>
+
+				
+				<span class="tooltip tooltip--small">
+					&nbsp; <span class="faded">(?)</span>
+					<span class="tooltip__text">Our Analytics platform for all websites</span>
+				</span>
+				
+
+				
+				<span class="span-icon">
+					<a href="https://analytics.yixboost.dev" class="external-link-style">
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+							stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+							<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+							<polyline points="15 3 21 3 21 9"></polyline>
+							<line x1="10" y1="14" x2="21" y2="3"></line>
+						</svg>
+					</a>
+				</span>
+				
+
+				<span class="component-status">
+					
+					Operational
+					
+				</span>
+
+				
+
+				
+			</div>
+			
+			
+			
+			
+			
+
+			<div class="component" id="system-mail-server"
+				data-status="ok">
+				<a href="/affected/mail-server/" class="no-underline">
+					Mail server
+				</a>
+
+				
+				<span class="tooltip tooltip--small">
+					&nbsp; <span class="faded">(?)</span>
+					<span class="tooltip__text">SMTP and IMAP mail servers</span>
+				</span>
 				
 
 				
@@ -1138,7 +1507,7 @@
 	</div>
 	
 	<div class="category category--open category--titled"
-		id="empty-category">
+		id="extra-websites">
 		
 		<div class="bold padding clicky category__head" onclick="toggleCategoryHead(this)">
 			<span class="hide-without-js">
@@ -1157,7 +1526,12 @@
 					</svg>
 				</span>
 			</span>
-			<b>Empty Category</b>
+			<b>Extra Websites</b>
+			
+			<span class="tooltip tooltip--small">
+				&nbsp; <span class="faded">(?)</span>
+				<span class="tooltip__text">Our other websites</span>
+			</span>
 			
 			<span class="category-status"></span>
 		</div>
@@ -1166,72 +1540,22 @@
 		
 		<div class="components">
 			
-		</div>
-
-		
-		<script>
-			(function () {
-				var thisCategory = document.currentScript.parentNode;
-				var componentsOfThisCategory = thisCategory.querySelectorAll('.component');
-				var highestLevelStatus = 'ok';
-
-				function checkStatus(element) {
-					var status = element.getAttribute('data-status');
-					if (status === 'down') {
-						highestLevelStatus = 'down';
-					} else if (status === 'disrupted' && highestLevelStatus !== 'down') {
-						highestLevelStatus = 'disrupted';
-					} else if (status === 'notice' && highestLevelStatus !== 'down' && highestLevelStatus !== 'disrupted') {
-						highestLevelStatus = 'notice';
-					}
-				}
-
-				componentsOfThisCategory.forEach(checkStatus);
-
-				var highestLevelStatusReadable = highestLevelStatus;
-				if (highestLevelStatus === 'ok') highestLevelStatusReadable = 'Operational';
-				else if (highestLevelStatus === 'notice') highestLevelStatusReadable = 'Maintenance';
-				else if (highestLevelStatus === 'disrupted') highestLevelStatusReadable = 'Disrupted';
-				else if (highestLevelStatus === 'down') highestLevelStatusReadable = 'Down';
-
-				if (thisCategory.classList.contains('category--titled')) {
-					thisCategory.querySelector('.category__head').setAttribute('data-status', highestLevelStatus);
-					thisCategory.querySelector('.category-status').innerHTML = highestLevelStatusReadable;
-				}
-			})();
-		</script>
-	</div>
-	
-	<div class="category category--open"
-		id="uncategorized">
-		
-		<div class="padding"></div>
-		
-
-		
-		<div class="components">
-			
 			
 			
 			
 			
 
-			<div class="component" id="system-website"
+			<div class="component" id="system-jonas-about-me"
 				data-status="ok">
-				<a href="/affected/website/" class="no-underline">
-					Website
+				<a href="/affected/jonas-about-me/" class="no-underline">
+					Jonas&#39; About me
 				</a>
 
-				
-				<span class="tooltip tooltip--small">
-					&nbsp; <span class="faded">(?)</span>
-					<span class="tooltip__text">The web frontend for the application.</span>
-				</span>
 				
 
 				
 				<span class="span-icon">
-					<a href="https://example.com/" class="external-link-style">
+					<a href="https://jonas.yixboost.dev" class="external-link-style">
 						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
 							stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
 							<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
@@ -1258,50 +1582,25 @@
 			
 			
 
-			<div class="component" id="system-api"
+			<div class="component" id="system-valdtaniems-about-me"
 				data-status="ok">
-				<a href="/affected/api/" class="no-underline">
-					API
+				<a href="/affected/valdtaniems-about-me/" class="no-underline">
+					Valdtaniem&#39;s About me
 				</a>
 
 				
-				<span class="tooltip tooltip--small">
-					&nbsp; <span class="faded">(?)</span>
-					<span class="tooltip__text">The guts of the application.</span>
+
+				
+				<span class="span-icon">
+					<a href="https://valdtaniem.yixboost.dev" class="external-link-style">
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+							stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link">
+							<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+							<polyline points="15 3 21 3 21 9"></polyline>
+							<line x1="10" y1="14" x2="21" y2="3"></line>
+						</svg>
+					</a>
 				</span>
-				
-
-				
-
-				<span class="component-status">
-					
-					Operational
-					
-				</span>
-
-				
-
-				
-			</div>
-			
-			
-			
-			
-			
-
-			<div class="component" id="system-media-proxy"
-				data-status="ok">
-				<a href="/affected/media-proxy/" class="no-underline">
-					Media Proxy
-				</a>
-
-				
-				<span class="tooltip tooltip--small">
-					&nbsp; <span class="faded">(?)</span>
-					<span class="tooltip__text">This is the service responsible for serving images, audio, and video. It is reliant on our CDN.</span>
-				</span>
-				
-
 				
 
 				<span class="component-status">
@@ -1397,222 +1696,18 @@
 
 
 
-<a href="http://localhost:1313/issues/2024-02-24-maintenance-window/" class="issue no-underline">
-  
-
-  <small class="date float-right relative-time" title="February 24, 2024 at 10:35 AM UTC" data-date="2024-02-24T10:35:00Z">
-      
-        February 24, 2024 at 10:35 AM UTC
-      
-    </small>
-
-    <h3>
-      Maintenance Announcement  ℹ
-    </h3>
-
-  
-</a>
-
-
-
-
-
-
-
-
-
-<a href="http://localhost:1313/issues/2019-10-08-testing-new-pipeline/" class="issue no-underline">
-  
-    <small class="date float-right relative-time" title="October 5, 2019 at 4:24 PM UTC" data-date="2019-10-05T16:24:00Z">
-      
-        October 5, 2019 at 4:24 PM UTC
-      
-    </small>
-
-    <h3>
-      New Pipeline Rollout
-    </h3>
-
-    
-    
-    
-
-    
-	
-	
-	
-	
-	
-	
-
-	<div
-		class="ok">
-		
-		Resolved after 
-		
-		34m
-		
-		
-	</div>
-
-  
-</a>
-
-
-
-
-
-
-
-
-
 <a href="http://localhost:1313/issues/i-testing-cstate-functions/" class="issue no-underline">
   
 
-  <small class="date float-right relative-time" title="October 4, 2019 at 6:05 PM UTC" data-date="2019-10-04T18:05:00Z">
+  <small class="date float-right relative-time" title="January 9, 2026 at 9:50 AM UTC" data-date="2026-01-09T09:50:00Z">
       
-        October 4, 2019 at 6:05 PM UTC
-      
-    </small>
-
-    <h3>
-      Testing New cState Features  ℹ
-    </h3>
-
-  
-</a>
-
-
-
-
-
-
-
-
-
-<a href="http://localhost:1313/issues/2018-05-25-us-east-conn-issues/" class="issue no-underline">
-  
-    <small class="date float-right relative-time" title="April 25, 2018 at 4:13 AM UTC" data-date="2018-04-25T04:13:00Z">
-      
-        April 25, 2018 at 4:13 AM UTC
+        January 9, 2026 at 9:50 AM UTC
       
     </small>
 
     <h3>
-      US East Connection Issues
+      cstate issue test  ℹ
     </h3>
-
-    
-    
-    
-
-    
-	
-	
-	
-	
-	
-	
-
-	<div
-		class="faded">
-		
-		Resolved
-		in under a minute
-		
-	</div>
-
-  
-</a>
-
-
-
-
-
-
-
-
-
-<a href="http://localhost:1313/issues/2018-04-13-unavailable-guilds-connection-issues/" class="issue no-underline">
-  
-    <small class="date float-right relative-time" title="April 13, 2018 at 3:54 PM UTC" data-date="2018-04-13T15:54:00Z">
-      
-        April 13, 2018 at 3:54 PM UTC
-      
-    </small>
-
-    <h3>
-      Unavailable Guilds &amp; Connection Issues
-    </h3>
-
-    
-    
-    
-
-    
-	
-	
-	
-	
-	
-	
-
-	<div
-		class="warning">
-		
-		Resolved after 
-		1h 
-		36m
-		
-		of downtime
-		
-		
-	</div>
-
-  
-</a>
-
-
-
-
-
-
-
-
-
-<a href="http://localhost:1313/issues/2018-01-17-sending-dms-impacted/" class="issue no-underline">
-  
-    <small class="date float-right relative-time" title="December 17, 2017 at 4:24 PM UTC" data-date="2017-12-17T16:24:00Z">
-      
-        December 17, 2017 at 4:24 PM UTC
-      
-    </small>
-
-    <h3>
-      Issues Sending DMs
-    </h3>
-
-    
-    
-    
-
-    
-	
-	
-	
-	
-	
-	
-
-	<div
-		class="ok">
-		
-		Resolved after 
-		
-		34m
-		
-		
-	</div>
 
   
 </a>
@@ -1630,7 +1725,7 @@
   
 
 
-  console.log('cState v6.0 - https://github.com/cstate/cstate');
+  console.log('cState v6.0.1 - https://github.com/cstate/cstate');
   document.getElementsByTagName('html')[0].className = 'js';
 
   
@@ -1753,7 +1848,7 @@
 
 <div class="footer">
   <div class="contain">
-    <p><strong class="bold">&copy; Eggsample Status, 2025</strong>
+    <p><strong class="bold">&copy; Yixboost Status Page, 2026</strong>
        &nbsp; • &nbsp; <a href="#">Back to top</a>
     </p>
 

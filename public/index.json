@@ -1,8 +1,8 @@
 {
   "is": "index",
-  "cStateVersion": "6.0",
+  "cStateVersion": "6.0.1",
   "apiVersion": "2.0",
-  "title": "Eggsample Status",
+  "title": "Yixboost Status Page",
   "languageCodeHTML": "en",
   "languageCode": "en",
   "baseURL": "http://localhost:1313/",
@@ -10,43 +10,43 @@
   "summaryStatus": "ok",
   "categories": [
       {
-        "name": "North Coast",
-        "description": "The main servers are located here.",
+        "name": "Main website (yixboost.dev)",
+        "description": "Our mian website (yixboost.dev)",
         "hideTitle": false,
         "closedByDefault": true
       }
     ,
       {
-        "name": "Empty Category",
+        "name": "Yixboost Games",
+        "description": "All services needed for Yixboost Games",
         "hideTitle": false,
-        "closedByDefault": false
+        "closedByDefault": true
       }
     ,
       {
-        "name": "Uncategorized",
-        "hideTitle": true,
+        "name": "Infrastructure",
+        "description": "All extra systems",
+        "hideTitle": false,
+        "closedByDefault": true
+      }
+    ,
+      {
+        "name": "Extra Websites",
+        "description": "Our other websites",
+        "hideTitle": false,
         "closedByDefault": false
       }
     
   ],
   
   
-  "pinnedIssues": [
-      {
-        "is": "issue",
-        "title": "Maintenance Announcement",
-        "createdAt": "2024-02-24 10:35:00 +0000 UTC",
-        "lastMod": "2021-10-10 17:02:38 +0300 EEST",
-        "permalink": "http://localhost:1313/issues/2024-02-24-maintenance-window/",
-        "affected": [],
-        "filename": "2024-02-24-maintenance-window.md"
-      }
-  ],
+  "pinnedIssues": [],
   "systems": [
     
       {
-        "name": "Gateway",
-        "category": "North Coast",
+        "name": "Main domain (yixboost.eu)",
+        "description": "Our main domain",
+        "category": "Yixboost Games",
         
         "status": "ok",
         
@@ -54,18 +54,9 @@
         
       },
       {
-        "name": "Backup Gateway",
-        "category": "North Coast",
-        
-        "status": "ok",
-        
-        "unresolvedIssues": []
-        
-      },
-      {
-        "name": "Website",
-        "description": "The web frontend for the application.",
-        "category": "Uncategorized",
+        "name": "Alternate domains",
+        "description": "Yixboost Games proxy service for extra domains like tuxarmy.nl and play.yixboost.dev",
+        "category": "Yixboost Games",
         
         "status": "ok",
         
@@ -74,8 +65,8 @@
       },
       {
         "name": "API",
-        "description": "The guts of the application.",
-        "category": "Uncategorized",
+        "description": "The API for Yixboost Games",
+        "category": "Yixboost Games",
         
         "status": "ok",
         
@@ -83,9 +74,67 @@
         
       },
       {
-        "name": "Media Proxy",
-        "description": "This is the service responsible for serving images, audio, and video. It is reliant on our CDN.",
-        "category": "Uncategorized",
+        "name": "Main website",
+        "description": "Our project page on yixboost.dev",
+        "category": "Main website (yixboost.dev)",
+        
+        "status": "ok",
+        
+        "unresolvedIssues": []
+        
+      },
+      {
+        "name": "URL Management System",
+        "description": "Our url redirect system",
+        "category": "Infrastructure",
+        
+        "status": "ok",
+        
+        "unresolvedIssues": []
+        
+      },
+      {
+        "name": "CDN",
+        "description": "Our own hosting for cdn like css and js libraries",
+        "category": "Infrastructure",
+        
+        "status": "ok",
+        
+        "unresolvedIssues": []
+        
+      },
+      {
+        "name": "Analytics",
+        "description": "Our Analytics platform for all websites",
+        "category": "Infrastructure",
+        
+        "status": "ok",
+        
+        "unresolvedIssues": []
+        
+      },
+      {
+        "name": "Mail server",
+        "description": "SMTP and IMAP mail servers",
+        "category": "Infrastructure",
+        
+        "status": "ok",
+        
+        "unresolvedIssues": []
+        
+      },
+      {
+        "name": "Jonas' About me",
+        "category": "Extra Websites",
+        
+        "status": "ok",
+        
+        "unresolvedIssues": []
+        
+      },
+      {
+        "name": "Valdtaniem's About me",
+        "category": "Extra Websites",
         
         "status": "ok",
         
@@ -95,15 +144,15 @@
   ],
   
 
-  "buildDate": "2025-07-30",
-  "buildTime": "17:47",
-  "buildTimezone": "EEST",
+  "buildDate": "2026-01-09",
+  "buildTime": "10:11",
+  "buildTimezone": "CET",
   "colorBrand": "#0a0c0f",
   "colorOk": "#008000",
   "colorDisrupted": "#cc4400",
   "colorDown": "#e60000",
   "colorNotice": "#24478f",
   "alwaysKeepBrandColor": "true",
-  "logo": "http://localhost:1313/logo.png",
+  "logo": "http://localhost:1313/yixboost-logo.png",
   "googleAnalytics": "UA-00000000-1"
 }

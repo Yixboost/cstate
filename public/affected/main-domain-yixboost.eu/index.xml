@@ -2,8 +2,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <link rel="alternate" type="text/html" href="http://localhost:1313/"/>
-    <title>API on Yixboost Status Page</title>
-    <link>http://localhost:1313/affected/api/</link>
+    <title>Main Domain (Yixboost.eu) on Yixboost Status Page</title>
+    <link>http://localhost:1313/affected/main-domain-yixboost.eu/</link>
     <description>Incident history</description>
     <generator>github.com/cstate</generator>
     <language>en</language>
@@ -13,15 +13,15 @@
     
     
     
-      <atom:link href="http://localhost:1313/affected/api/index.xml" rel="self" type="application/rss+xml" />
+      <atom:link href="http://localhost:1313/affected/main-domain-yixboost.eu/index.xml" rel="self" type="application/rss+xml" />
     
     
       <item>
-        <title>cstate issue test</title>
+        <title>[Resolved] cstate issue test</title>
         <link>http://localhost:1313/issues/i-testing-cstate-functions/</link>
         <pubDate>Fri, 09 Jan 2026 09:50:00 +0000</pubDate>
         <guid>http://localhost:1313/issues/i-testing-cstate-functions/</guid>
-        <category>2017-02-30 16:00:00</category>
+        <category>2026-01-09 10:00:00</category>
         <description>&lt;h2 id=&#34;hello-world&#34;&gt;Hello world!&lt;/h2&gt;
 &lt;p&gt;This is a test issue, don&amp;rsquo;t worry, nothing is offline&lt;/p&gt;</description>
         <content type="html">&lt;h2 id=&#34;hello-world&#34;&gt;Hello world!&lt;/h2&gt;

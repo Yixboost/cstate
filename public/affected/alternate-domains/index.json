@@ -1,8 +1,8 @@
 {
-  "is": "issues",
-  "title": "Issues",
-  "baseURL": "http://localhost:1313/", 
-  "description": "",
+  "is": "system",
+  "title": "Alternate Domains",
+  "permalink": "http://localhost:1313/affected/alternate-domains/",
+  "status": "down", 
   "pages": [
       {
         "is": "issue",
@@ -10,13 +10,18 @@
         "createdAt": "2026-01-09 09:50:00 +0000 UTC",
         "lastMod": "2026-01-08 11:36:18 +0100 CET",
         "permalink": "http://localhost:1313/issues/i-testing-cstate-functions/",
-        "severity": "<no value>",
+        "severity": "down",
         "resolved": false,
         "informational": true,
-        "resolvedAt": "<no value>",
-        "affected": [],
+        "resolvedAt": "2017-02-30 16:00:00",
+        "affected": ["Main domain (yixboost.eu)", "API", "Alternate domains"],
         "filename": "i-testing-cstate-functions.md"
       }
     
   ]
 }
+
+
+
+
+
