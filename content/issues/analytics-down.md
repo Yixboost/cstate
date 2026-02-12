@@ -3,7 +3,8 @@ title: Analytics rate limited
 date: 2026-02-12 11:06:00
 informational: true
 section: issue
-resolved: false
+resolved: true
+resolvedWhen: 2026-02-12 11:29:00
 severity: down
 affected:
   - Analytics
