@@ -178,6 +178,10 @@ params:
       description: Our project page on yixboost.dev
       category: Main website (yixboost.dev)
       link: https://yixboost.dev
+    - name: Yixboost Auth
+      description: The login/registe system
+      category: Infrastructure
+      link: https://auth.yixboost.dev
     - name: URL Management System
       description: Our url redirect system
       category: Infrastructure
