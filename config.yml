@@ -179,7 +179,7 @@ params:
       category: Main website (yixboost.dev)
       link: https://yixboost.dev
     - name: Yixboost Auth
-      description: The login/registe system
+      description: The login/register system
       category: Infrastructure
       link: https://auth.yixboost.dev
     - name: URL Management System
