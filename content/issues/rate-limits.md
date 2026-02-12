@@ -3,7 +3,8 @@ title: Cloudfare rate limit
 date: 2026-02-11 22:03:00
 informational: true
 section: issue
-resolved: false
+resolved: true
+resolvedWhen: 2026-02-12 00:00:00
 severity: down
 affected:
   - URL Management System
