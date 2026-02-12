@@ -6,7 +6,7 @@ section: issue
 resolved: false
 severity: down
 affected:
-  - Analytics
+  - Valdtaniem's About me
 ---
 
 ## Sorry valdtaniem
